@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-body{
+body {
   background: #34495e;
   color: #ecf0f1;
 }
@@ -49,7 +49,7 @@ body{
   align-self: center;
 }
 
-.App-input-form:focus{
+.App-input-form:focus {
   outline: none;
   box-shadow: 0.2rem 0.4rem 0.4rem #34495e;
 }
@@ -64,7 +64,7 @@ body{
   cursor: pointer;
 }
 
-.App-btn-form:hover{
+.App-btn-form:hover {
   background: #27ae60;
 }
 
@@ -88,7 +88,7 @@ body{
   margin: 15px 0 0;
 }
 
-.App-btn{
+.App-btn {
   padding: 8px;
   margin: 5px 5px;
   background: #2ecc71;
@@ -98,14 +98,15 @@ body{
   cursor: pointer;
 }
 
-.App-editar:hover{
+.App-editar:hover {
   background: #27ae60;
 }
 
-.App-eliminar{
+.App-eliminar {
   background: #e74c3c;
 }
-.App-eliminar:hover{
+
+.App-eliminar:hover {
   background: #c0392b;
 }
 
