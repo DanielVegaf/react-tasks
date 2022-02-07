@@ -89,59 +89,62 @@ const Tareas = () => {
 
     return (
         <>
-            <h1 className="App-titulo">Tareas :D</h1>
-            <h5 className="App-titulo-fomulario">
-                {
-                    modoEdicion ? 'Editar Tarea' : 'Agregar Tarea'
-                }
-            </h5>
-            <div className="App-Contenedor-formulario">
-                <form className="App-formulario" onSubmit={modoEdicion ? editarTarea : agregarTarea}>
+            <div className='Container'>
+                <div className="App-Contenedor-formulario">
+
+
+                    <form className="App-formulario" onSubmit={modoEdicion ? editarTarea : agregarTarea}>
+                        <h5 className="App-titulo-fomulario">
+                            {
+                                modoEdicion ? 'Editando Tarea' : 'Agregar Tarea'
+                            }
+                        </h5>
+                        {
+                            error ? <span className="App-formulario-error">{error}</span> : null
+                        }
+                        <input
+                            type="text"
+                            className="App-input-form"
+                            placeholder="Agregar tarea"
+                            onChange={e => setTarea(e.target.value)}
+                            value={tarea}
+                        />
+                        {
+                            modoEdicion ? (
+                                <button type="submit" className="App-btn-form App-btn-editar">Editado</button>
+                            ) : (
+                                <button type="submit" className="App-btn-form App-btn-Agregar">Agregar</button>
+                            )
+                        }
+                    </form>
+                </div>
+
+                <div className="App-tareas">
                     {
-                        error ? <span className="App-formulario-error">{error}</span> : null
+                        tareas.length === 0 ? (
+                            <h3 className="App-tareas-no">No hay tareas</h3>
+                        ) :
+                            (
+                                tareas.map(item => (
+                                    <li className="App-tareas-item" key={item.id}>
+                                        <p className='App-nombre-tareas'>{item.nombreTarea}</p>
+                                        <div className="App-btn-tareas">
+                                            <button
+                                                class="App-btn App-editar"
+                                                onClick={() => editar(item)} >
+                                                Editar
+                                            </button>
+                                            <button
+                                                class="App-btn App-eliminar"
+                                                onClick={() => eliminarTarea(item.id)} >
+                                                Eliminar
+                                            </button>
+                                        </div>
+                                    </li>
+                                ))
+                            )
                     }
-                    <input
-                        type="text"
-                        className="App-input-form"
-                        placeholder="Agregar tarea"
-                        onChange={e => setTarea(e.target.value)}
-                        value={tarea}
-                    />
-                    {
-                        modoEdicion ? (
-                            <button type="submit" className="App-btn-form App-btn-editar">Editar</button>
-                        ) : (
-                            <button type="submit" className="App-btn-form App-btn-Agregar">Agregar</button>
-                        )
-                    }
-                </form>
-            </div>
-            
-            <div className="App-tareas">
-                {
-                    tareas.length === 0 ? (
-                        <h3 className="App-tareas-no">No hay tareas</h3>
-                    ) :
-                        (
-                            tareas.map(item => (
-                                <li className="App-tareas-item" key={item.id}>
-                                    <p className='App-nombre-tareas'>{item.nombreTarea}</p>
-                                    <div className="App-btn-tareas">
-                                        <button
-                                            class="App-btn App-editar"
-                                            onClick={() => editar(item)} >
-                                            Editar
-                                        </button>
-                                        <button
-                                            class="App-btn App-eliminar"
-                                            onClick={() => eliminarTarea(item.id)} >
-                                            Eliminar
-                                        </button>
-                                    </div>
-                                </li>
-                            ))
-                        )
-                }
+                </div>
             </div>
         </>
     )
