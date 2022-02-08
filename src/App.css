@@ -110,7 +110,7 @@ body {
   background: #c0392b;
 }
 
-@media screen and (max-width: 380px) {
+@media screen and (max-width: 710px) {
   .Container {
     display: flex;
     flex-direction: column;
@@ -145,7 +145,7 @@ body {
   }
 }
 
-@media screen and (max-width: 710px) {
+@media screen and (min-width: 710px) {
   .Container {
     justify-content: space-around;
   }
