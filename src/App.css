@@ -116,6 +116,10 @@ body {
     flex-direction: column;
   }
 
+  .App-tareas-no {
+    text-align: center;
+  }
+
   .App-Contenedor-formulario {
     width: 95%;
   }
@@ -138,5 +142,21 @@ body {
   .App-tareas-item {
     margin: 10px auto;
     width: 95%;
+  }
+}
+
+@media screen and (max-width: 710px) {
+  .Container {
+    justify-content: space-around;
+  }
+
+  .App-formulario {
+    width: 50%;
+    left: 30px;
+  }
+
+  .App-tareas {
+    width: 40%;
+    margin-left: 130px;
   }
 }
